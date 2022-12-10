@@ -1,0 +1,52 @@
+@import "colors";
+
+@mixin loadingAnimation($color) {
+    .loading-mount {
+        width: 100%;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $color;
+        animation: loadingPage 0.4s ease forwards;
+    }
+    .loading-unmount {
+        width: 100%;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $color;
+        animation: loadingPageUnmount 0.4s ease forwards;
+    }
+}
+// colors
+.loading-red {
+    @include loadingAnimation($theme-red);
+}
+.loading-purple {
+    @include loadingAnimation($theme-purple);
+}
+.loading-green {
+    @include loadingAnimation($theme-green);
+}
+.loading-yellow {
+    @include loadingAnimation($theme-yellow);
+}
+
+@keyframes loadingPage {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+@keyframes loadingPageUnmount {
+    0% {
+        height: 100%;
+    }
+    100% {
+        height: 0;
+    }
+}

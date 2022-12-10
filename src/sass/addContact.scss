@@ -1,0 +1,171 @@
+@import "colors";
+
+@mixin addContact($color, $background, $btnBackground, $cardBg) {
+    .cancel-add-contact {
+        text-align: center;
+        height: 90px;
+        button {
+            border: none;
+            width: 50px;
+            height: 50px;
+            background-color: $btnBackground;
+            border-radius: 50%;
+            position: relative;
+            bottom: 30px;
+            color: $background;
+            transform: rotate(45deg);
+            transition: all 0.3s;
+            a {
+                color: $background;
+            }
+            &:hover {
+                background-color: $color;
+                transform: scale(1.06) rotate(225deg);
+                box-shadow: 2px 4px 15px $color;
+            }
+        }
+        .cancel-add-contact-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+        p {
+            position: relative;
+            bottom: 20px;
+            color: $background;
+        }
+    }
+    h2 {
+        text-align: center;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        color: $background;
+    }
+    .add-contact-from-container {
+        width: 90%;
+        height: 387px;
+        margin: 0 auto;
+        margin-top: 42px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: $cardBg;
+        border-width: 1px 1px 0px 0px;
+        border-style: solid;
+        border-color: #ababab;
+        border-radius: 15px;
+        .add-contact-line {
+            width: 300px;
+            height: 1.5px;
+            margin-top: 51px;
+            margin-bottom: 55px;
+            background-color: $color;
+            border-radius: 10px;
+            @media screen and (max-width: 750px) {
+                width: 90%;
+            }
+        }
+        .add-contact-form {
+            width: 60%;
+            text-align: center;
+            input:focus {
+                outline: none;
+            }
+            @media screen and (max-width: 750px) {
+                width: 90%;
+            }
+            .add-contact-input-container {
+                width: 100%;
+                margin-bottom: 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .add-contact-input {
+                    height: 25px;
+                    background: transparent;
+                    border: 2px solid #989898;
+                    box-sizing: border-box;
+                    padding-left: 5px;
+                    color: $background;
+                    &:focus {
+                        border: 2px solid $color;
+                    }
+                    @media screen and(max-width: 750px) {
+                        height: 35px;
+                    }
+                }
+                .firstName {
+                    width: 48%;
+                }
+                .lastName {
+                    width: 48%;
+                }
+                .email {
+                    width: 100%;
+                }
+                .phone {
+                    width: 100%;
+                }
+                .address {
+                    width: 70%;
+                }
+                .zipCode {
+                    width: 25%;
+                }
+            }
+            .add-contact-btn {
+                box-sizing: border-box;
+                width: 118px;
+                height: 27px;
+                border-radius: 100px;
+                background-color: $color;
+                color: #fff;
+                border: none;
+                margin-top: 55px;
+                cursor: pointer;
+                transition: all 0.3s;
+                &:hover {
+                    transform: scale(1.06);
+                    box-shadow: 2px 4px 15px $color;
+                }
+                @media screen and (max-width: 750px) {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+// Light modes
+.add-contact-light-red {
+    @include addContact($theme-red, $light-black, $light-main, linear-gradient(200.48deg, rgba(133, 133, 133, 0.25) 4.12%, rgba(0, 0, 0, 0.025) 82.59%));
+}
+.add-contact-light-purple {
+    @include addContact($theme-purple, $light-black, $light-main, linear-gradient(200.48deg, rgba(133, 133, 133, 0.25) 4.12%, rgba(0, 0, 0, 0.025) 82.59%));
+}
+.add-contact-light-green {
+    @include addContact($theme-green, $light-black, $light-main, linear-gradient(200.48deg, rgba(133, 133, 133, 0.25) 4.12%, rgba(0, 0, 0, 0.025) 82.59%));
+}
+.add-contact-light-yellow {
+    @include addContact($theme-yellow, $light-black, $light-main, linear-gradient(200.48deg, rgba(133, 133, 133, 0.25) 4.12%, rgba(0, 0, 0, 0.025) 82.59%));
+}
+// Dark modes
+.add-contact-dark-red {
+    @include addContact($theme-red, $light-main, $light-black, linear-gradient(200.48deg, rgba(255, 255, 255, 0.25) 4.12%, rgba(255, 255, 255, 0.025) 82.59%));
+}
+.add-contact-dark-purple {
+    @include addContact($theme-purple, $light-main, $light-black, linear-gradient(200.48deg, rgba(255, 255, 255, 0.25) 4.12%, rgba(255, 255, 255, 0.025) 82.59%));
+}
+.add-contact-dark-green {
+    @include addContact($theme-green, $light-main, $light-black, linear-gradient(200.48deg, rgba(255, 255, 255, 0.25) 4.12%, rgba(255, 255, 255, 0.025) 82.59%));
+}
+.add-contact-dark-yellow {
+    @include addContact($theme-yellow, $light-main, $light-black, linear-gradient(200.48deg, rgba(255, 255, 255, 0.25) 4.12%, rgba(255, 255, 255, 0.025) 82.59%));
+}

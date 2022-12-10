@@ -1,0 +1,81 @@
+@import "colors";
+
+@mixin navbar($color, $background, $bgColor) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+    background-color: $bgColor;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    div {
+        margin: 0 18px;
+    }
+    .contact-icon {
+        border-radius: 50%;
+        width: 37px;
+        height: 37px;
+        color: $background;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .search-icon {
+        width: 30px;
+        height: 30px;
+        color: $background;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .settings-icon {
+        margin-left: 15px;
+        width: 30px;
+        height: 30px;
+        color: $background;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .activeLink {
+        color: $color;
+    }
+    .unActiveLink {
+        color: $background;
+        &:hover {
+            transform: scale(1.06);
+            color: $color;
+            filter: drop-shadow(2px 4px 15px $background);
+        }
+    }
+    .unActiveSettingsLink {
+        color: $background;
+        &:hover {
+            transform: scale(1.06) rotate(360deg);
+            color: $color;
+            filter: drop-shadow(2px 4px 15px $background);
+        }
+    }
+}
+// Light modes
+.navbar-light-red {
+    @include navbar($theme-red, $light-black, $light-gray);
+}
+.navbar-light-purple {
+    @include navbar($theme-purple, $light-black, $light-gray);
+}
+.navbar-light-green {
+    @include navbar($theme-green, $light-black, $light-gray);
+}
+.navbar-light-yellow {
+    @include navbar($theme-yellow, $light-black, $light-gray);
+}
+// Dark modes
+.navbar-dark-red {
+    @include navbar($theme-red, $light-main, $dark-black);
+}
+.navbar-dark-purple {
+    @include navbar($theme-purple, $light-main, $dark-black);
+}
+.navbar-dark-green {
+    @include navbar($theme-green, $light-main, $dark-black);
+}
+.navbar-dark-yellow {
+    @include navbar($theme-yellow, $light-main, $dark-black);
+}

@@ -1,0 +1,205 @@
+@import "colors";
+@import "reset";
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #1e1e1e;
+}
+
+@mixin App($color, $mainColor, $cardBg, $background) {
+    width: 700px;
+    height: 700px;
+    margin: 50px auto;
+    background-color: $background;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    position: relative;
+    transition: all 0.3s;
+    @media screen and (max-width: 750px) {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0 auto;
+    }
+    .contacts {
+        width: 90%;
+        height: 65%;
+        margin: 0 auto;
+        .add-contact {
+            text-align: center;
+            height: 115px;
+            @media screen and (max-width: 750px) {
+                height: 60px;
+            }
+            button {
+                border: none;
+                width: 50px;
+                height: 50px;
+                color: $mainColor;
+                background-color: $background;
+                border-radius: 50%;
+                position: relative;
+                bottom: 30px;
+                transition: all 0.3s;
+                a {
+                    color: $mainColor;
+                }
+                &:hover {
+                    background-color: $color;
+                    transform: scale(1.06) rotate(180deg);
+                    box-shadow: 2px 4px 15px $color;
+                }
+            }
+            .add-contact-btn {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            p {
+                position: relative;
+                bottom: 20px;
+                color: $mainColor;
+            }
+        }
+        h2 {
+            text-align: center;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 29px;
+            color: $mainColor;
+        }
+        .contact-list-container::-webkit-scrollbar {
+            width: 10px;
+        }
+        .contact-list-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .contact-list-container::-webkit-scrollbar-thumb {
+            background-color: $color;
+            border-radius: 10px;
+        }
+        .contact-list-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            padding: 0;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            margin: 10px 0;
+            overflow-y: auto;
+            scrollbar-width: auto;
+            scrollbar-color: $color #ffffff;
+            @media screen and (max-width: 750px) {
+                height: 80vh;
+            }
+            .contact-list {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+                text-decoration: none;
+                color: $mainColor;
+                width: 100%;
+                height: 120px;
+                margin: 10px 10px;
+                border-radius: 15px;
+                background: linear-gradient(200.48deg, rgba(133, 133, 133, 0.25) 4.12%, rgba(0, 0, 0, 0.025) 82.59%);
+                border-width: 1px 1px 0px 0px;
+                border-style: solid;
+                border-color: #ababab;
+                font-size: 16px;
+                cursor: pointer;
+                visibility: hidden;
+                transition: all 0.3s;
+                animation: cardLoading 0.5s ease forwards;
+                &:hover {
+                    transform: scale(1.03);
+                }
+                .contact-image {
+                    width: 80px;
+                    height: 80px;
+                    margin-top: 11px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 0;
+                    margin-left: 20px;
+                    border-radius: 50%;
+                    background-color: $color;
+                    img {
+                        width: 45px;
+                    }
+                }
+                .contact-details-container {
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+                    .contact-name {
+                        margin-bottom: 10px;
+                        text-align: center;
+                        width: 100%;
+                        span {
+                            margin-right: 5px;
+                            letter-spacing: 1px;
+                        }
+                    }
+                    .contact-email {
+                        margin: 5px auto;
+                        text-align: center;
+                        font-size: 14px;
+                        width: 90%;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                    .contact-number {
+                        margin-top: 10px;
+                        text-align: center;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+// Light modes
+.App-light-red {
+    @include App($theme-red, $light-black, linear-gradient(200.48deg, rgba(133, 133, 133, 0.25) 4.12%, rgba(0, 0, 0, 0.025) 82.59%), $light-main);
+}
+.App-light-purple {
+    @include App($theme-purple, $light-black, linear-gradient(200.48deg, rgba(133, 133, 133, 0.25) 4.12%, rgba(0, 0, 0, 0.025) 82.59%), $light-main);
+}
+.App-light-green {
+    @include App($theme-green, $light-black, linear-gradient(200.48deg, rgba(133, 133, 133, 0.25) 4.12%, rgba(0, 0, 0, 0.025) 82.59%), $light-main);
+}
+.App-light-yellow {
+    @include App($theme-yellow, $light-black, linear-gradient(200.48deg, rgba(133, 133, 133, 0.25) 4.12%, rgba(0, 0, 0, 0.025) 82.59%), $light-main);
+}
+// Dark modes
+.App-dark-red {
+    @include App($theme-red, $light-main, linear-gradient(200.48deg, rgba(255, 255, 255, 0.25) 4.12%, rgba(255, 255, 255, 0.025) 82.59%), $dark-main);
+}
+.App-dark-purple {
+    @include App($theme-purple, $light-main, linear-gradient(200.48deg, rgba(255, 255, 255, 0.25) 4.12%, rgba(255, 255, 255, 0.025) 82.59%), $dark-main);
+}
+.App-dark-green {
+    @include App($theme-green, $light-main, linear-gradient(200.48deg, rgba(255, 255, 255, 0.25) 4.12%, rgba(255, 255, 255, 0.025) 82.59%), $dark-main);
+}
+.App-dark-yellow {
+    @include App($theme-yellow, $light-main, linear-gradient(200.48deg, rgba(255, 255, 255, 0.25) 4.12%, rgba(255, 255, 255, 0.025) 82.59%), $dark-main);
+}
+@keyframes cardLoading {
+    0% {
+        margin: 30px 10px;
+        opacity: 0;
+    }
+    100% {
+        margin: 10px 10px;
+        opacity: 1;
+        visibility: visible;
+    }
+}

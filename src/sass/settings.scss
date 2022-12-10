@@ -1,0 +1,179 @@
+@import "colors";
+
+@mixin settings($color, $background, $cancelBtn) {
+    color: $color;
+    .cancel-settings {
+        text-align: center;
+        height: 90px;
+        button {
+            border: none;
+            width: 50px;
+            height: 50px;
+            background-color: $cancelBtn;
+            border-radius: 50%;
+            position: relative;
+            bottom: 30px;
+            color: $color;
+            transform: rotate(45deg);
+            transition: all 0.3s;
+            a {
+                color: $color;
+            }
+            &:hover {
+                background-color: $background;
+                transform: scale(1.06) rotate(225deg);
+                box-shadow: 2px 4px 15px $background;
+            }
+        }
+        .cancel-settings-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+        p {
+            position: relative;
+            bottom: 20px;
+        }
+    }
+    .dark-mode-container {
+        display: flex;
+        flex-direction: column;
+        width: 93%;
+        margin: 0 auto;
+        .dark-mode {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            p {
+                font-size: 20px;
+            }
+            .checkbox-background-checked {
+                width: 40px;
+                height: 16px;
+                background-color: #aeaeae;
+                border-radius: 7px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                .checkbox-btn-checked {
+                    width: 24px;
+                    height: 24px;
+                    margin-left: 16px;
+                    transition: 0.3s;
+                    border-radius: 50%;
+                    background-color: $background;
+                }
+            }
+            .checkbox-background {
+                width: 40px;
+                height: 16px;
+                background-color: #5f5f5f;
+                border-radius: 7px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                opacity: 0.9;
+                .checkbox-btn {
+                    width: 24px;
+                    height: 24px;
+                    transition: 0.3s;
+                    border-radius: 50%;
+                    background-color: #8e8e8e;
+                }
+            }
+        }
+        .horz-line {
+            width: 100%;
+            height: 2px;
+            margin-top: 30px;
+            background-color: $background;
+            border-radius: 10px;
+        }
+    }
+    .theme-container {
+        margin: auto;
+        margin-top: 23px;
+        display: flex;
+        flex-direction: column;
+        width: 93%;
+        p {
+            font-size: 20px;
+        }
+        .theme-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 25px;
+            .theme-option {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                .radio-background {
+                    width: 19px;
+                    height: 19px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 5px;
+                    border-radius: 50%;
+                    border: 1px solid #dddddd;
+                    .radio-btn {
+                        width: 13px;
+                        height: 13px;
+                        border-radius: 50%;
+                        background-color: #dddddd;
+                    }
+                }
+                .radio-background-checked {
+                    width: 19px;
+                    height: 19px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 5px;
+                    border-radius: 50%;
+                    background-color: $background;
+                }
+            }
+        }
+        .horz-line {
+            width: 100%;
+            height: 2px;
+            margin-top: 30px;
+            background-color: $background;
+            border-radius: 10px;
+        }
+    }
+}
+// Light modes
+.settings-container-light-red {
+    @include settings($light-black, $theme-red, $light-main);
+}
+.settings-container-light-purple {
+    @include settings($light-black, $theme-purple, $light-main);
+}
+.settings-container-light-green {
+    @include settings($light-black, $theme-green, $light-main);
+}
+.settings-container-light-yellow {
+    @include settings($light-black, $theme-yellow, $light-main);
+}
+// Dark modes
+.settings-container-dark-red {
+    @include settings($light-main, $theme-red, $light-black);
+}
+.settings-container-dark-purple {
+    @include settings($light-main, $theme-purple, $light-black);
+}
+.settings-container-dark-green {
+    @include settings($light-main, $theme-green, $light-black);
+}
+.settings-container-dark-yellow {
+    @include settings($light-main, $theme-yellow, $light-black);
+}
